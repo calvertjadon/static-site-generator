@@ -18,11 +18,11 @@ def empty_dir(dir: Path) -> None:
         return
 
     if not dir.is_dir():
-        raise Exception("destination is not a directory")
+        raise Exception("destination is not a directory", dir)
 
-    for file in dir.glob("*.*"):
-        file.unlink()
-
-    for subdir in dir.glob("*"):
-        empty_dir(subdir)
-        subdir.rmdir()
+    for child in dir.glob("*"):
+        if child.is_file():
+            child.unlink()
+        else:
+            empty_dir(child)
+            child.rmdir()
