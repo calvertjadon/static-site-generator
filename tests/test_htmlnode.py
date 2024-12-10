@@ -14,6 +14,7 @@ def test_tohtml_raises() -> None:
         ({"href": "google.com", "style": "bold"}, 'href="google.com" style="bold"'),
         ({}, ""),
         ({"value": "asdf"}, 'value="asdf"'),
+        ({"target": "_blank"}, 'target="_blank"'),
     ],
 )
 def test_props(props: dict[str, str], expected: str) -> None:

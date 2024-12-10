@@ -24,6 +24,7 @@ def test_tohtml_requires_value():
             "<p>asdf</p>",
         ),
         ("asdf", None, None, "asdf"),
+        ("this is bold text", "strong", None, "<strong>this is bold text</strong>"),
     ],
 )
 def test_tohtml_with_tag(value: str, tag: str, props: dict[str, str], expected: str):
