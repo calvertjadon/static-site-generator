@@ -33,6 +33,16 @@ from bddssg.textnode import TextNode, TextType
             ],
         ),
         (
+            "this is some _italic_ text.",
+            "_",
+            TextType.ITALIC,
+            [
+                TextNode("this is some ", TextType.TEXT),
+                TextNode("italic", TextType.ITALIC),
+                TextNode(" text.", TextType.TEXT),
+            ],
+        ),
+        (
             "*italic* text.",
             "*",
             TextType.ITALIC,
